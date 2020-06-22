@@ -1,0 +1,53 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="-1">
+  <title>MultiDB | {% block title %}Home{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+  <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+  <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+  <link rel="stylesheet" href="{% static 'css/jquery-confirm.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+  <link rel="stylesheet" href="{% static 'css/custom_style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+  <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery-ui.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery-confirm.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/aos.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+</head>
+<body>
+  {% block header %}
+    {% include 'login_header.html' %}
+  {% endblock %}
+  {% if messages %}
+    {% for message in messages %}
+    <div class="alert {% if message.tags == 'success' %}alert-success{% elif message.tags == 'info' %}alert-warning{% else %} alert-danger{% endif %}">
+      <a href="#" class="close" data-dismiss="alert">&times;</a>
+      <center><strong>{{ message }}!</strong></center>
+    </div>
+    {% endfor %}
+  {% endif %}
+  {% block content %}
+  {% endblock  %}
+  <footer>
+    <div class="footer_sec"></div>
+  </footer>
+  <script type="text/javascript">
+  </script>
+  {%block script%}
+  {% endblock  %}
+</body>
+</html>

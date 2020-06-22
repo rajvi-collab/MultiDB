@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Users{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row home_section">
+		<div class="col-md-4">
+			<div class="listing_section">
+				<div class="history_header">
+					<h3>User Lists</h3>
+				</div>
+				<div class="history_container">
+					<ul>
+						{% if user_list %}
+						    {% for users in user_list %}
+						    <a class="users_details" href="{% url 'users:user_detail' users.id %}" data-id="{{users.id}}"><li class="users">{{users.first_name}}</li></a>
+						    {% endfor %}
+						{% else %}
+							<li class="users">None</li>
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="listing_section">
+				<div class="history_header">
+					<h3>Create User</h3>
+				</div>
+				<div class="history_container">
+					<form action="{% if id %}{% url 'users:user_detail' id %}{% else %}{% url 'users:home' %}{% endif %}" method="post">
+					    {% csrf_token %}
+					    {{ signup }}
+					    <div class="history_container">
+					    	<button type="submit" class="btn btn-primary">Save</button>
+					    </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
