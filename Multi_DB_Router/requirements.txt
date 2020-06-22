@@ -1,4 +1,4 @@
-Django==1.10
+Django==1.11.29
 django-multiselectfield==0.1.12
 mysql-connector-python==8.0.6
 mysqlclient==1.4.6
